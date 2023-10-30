@@ -15,7 +15,7 @@
 
 		<a class="title" >
 			<h1 class="herotext">Gina Holby</h1>
-			<h3 class="subherotext">UX-designer</h3>
+			<h3 class="subherotext">UX-designer og frontend-utvikler</h3>
 		</a>
 
 		<div class="skoleoppgaver">
