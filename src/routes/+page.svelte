@@ -22,7 +22,7 @@
 			{#each data.projects as project}
 
 				<a class="" href="/project/{project.slug.current}">
-					<img class="{project.slug.current} circle " src="{project.bilde}" alt="">
+					<img class="{project.bublePlacement ?? "hide"} circle" src="{project.bilde}" alt="">
 				</a>
 
 			{/each}
@@ -53,13 +53,17 @@
 	}
 	.herotext{
 		font-family: 'Allura', cursive;
-		font-size: 90px;
+		font-size: 94px;
 	}
 	.subherotext{
 	   /*  font-family: 'Fauna One', serif; */
 		position: absolute;
-		left: 56px;
-		top: 80px
+		left: 53px;
+		top: 87px
+	}
+
+	h3{
+		font-size: 18px;
 	}
 	
 	
@@ -81,55 +85,57 @@
 		box-shadow: 5px 10px 10px grey;
 	}
 	
-	.disko{
+	.center{
 		position: absolute;
 		top: -35px;
 		left: -45px;
 		z-index: 4;
 		width: 220px;
 		height: 220px;
-	}.citybike{
+	}.right1{
 		position: absolute;
 		top: 110px;
 		left: 80px;
 		z-index: 3;
 		width: 200px;
 		height: 200px;
-	}.grape{
+	}.left1{
 		position: absolute;
 		top: 70px;
 		right: 80px;
 		z-index: 2;
 		width: 200px;
 		height: 200px;
-	}.getaway{
+	}.left2{
 		position: absolute;
 		top: 20px;
 		right: 250px;
 		z-index: 1;
 		width: 150px;
 		height: 150px;
-	}.nasjonalmuseet{
+	}.right2{
 		position: absolute;
 		top: 40px;
 		right: -287px;
 		z-index: 1;
 		width: 150px;
 		height: 150px;
-	}.nor-ways{
+	}.right3{
 		position: absolute;
 		top: 70px;
 		right: -380px;
 		z-index: 1;
 		width: 100px;
 		height: 100px;
-	}.laekag{
+	}.left3{
 		position: absolute;
 		top: 100px;
 		right: 380px;
 		z-index: 1;
 		width: 100px;
 		height: 100px;
+	}.hide{
+		display: none;
 	}
 	
 	

@@ -6,6 +6,8 @@
   import Figma from "../../../assets/icons/Figma.svelte";
   import Internet from "../../../assets/icons/Internet.svelte";
   import Notion from "../../../assets/icons/Notion.svelte";
+
+  console.log(data)
 </script>
 
 <header>
@@ -29,35 +31,76 @@
       <h3>{project.shortProjectDescription}</h3>
 
       <div class="ikoner">
-        <a class={project.figmalinkhide} href={project.figmalink} target="_blank">
-          <div class="figma-logo"> <Figma /></div>
-            
-        </a>
-        
-        <a class={project.hidenettsidelink} href={project.nettsidelink} target="_blank">
-          <div class="figma-logo"> <Internet /></div>
-        </a>
 
-        <a class={project.hidenotionlink} href={project.notionlink} target="_blank">
-          <div class="figma-logo"> <Notion /></div>
-        </a>
+        <div class="{project.figmalink ? "show" : "hide"}">
+          <p>link til Figma:</p>
+          <a href={project.figmalink} target="_blank">
+            <div class="figma-logo"> <Figma /></div>
+          </a>
+        </div>
 
+        <div class="{project.nettsidelink ? "show" : "hide"}">
+          <p>link til nettside:</p>
+          <a href={project.nettsidelink} target="_blank">
+            <div class="figma-logo"> <Internet /></div>
+          </a>
+        </div>
+        <div class="{project.notionlink ? "show" : "hide"}">
+          <p>link til Notion:</p>
+          <a href={project.notionlink} target="_blank">
+            <div class="figma-logo"> <Notion /></div>
+          </a>
+        </div>
         
 
         
       </div>
 
-      <div class="text">
-        <h2>Oppgave:</h2>
+      {#if project.information}
+      <div class="projectInformation">
+        {#each project.information as info}
+          {#if info.style === 'normal'}
+            <p> {info.children[0].text}</p> 
+          {/if}
+          {#if info.style === 'h3'}
+            <p class="lineBreak"> </p>
+            <h3>{info.children[0].text}</h3> 
+          {/if}
+          {#if info.style === 'h4'}
 
-        <h3>{project.problemDescriptions}</h3>
-
-        <h2>Lengde:</h2>
-        <h3>{project.length}</h3>
-
-        <h2>Løsning:</h2>
-        <h3>{project.solutionDescription}</h3>
+          <p class="slineBreak"> </p>
+            <h4>{info.children[0].text}</h4> 
+          {/if}
+        {/each} 
       </div>
+      {/if}
+     
+              
+              
+              <!-- {#if instruction._type === 'block' & instruction.listItem !== 'bullet'}
+                <span class="p">{instruction.children[0].text}</span>
+              {/if}
+              {#if instruction._type === 'image'}  
+              <div class="instructionImages oneImage">
+                <img class="instructionImage" 
+                     src="{urlFor(instruction.asset._ref).url()}" 
+                     alt=""
+                >
+              </div> 
+              {/if} -->
+             <!--  {#if instruction._type === 'twoImages'}
+              <div class="instructionImages twoImages">
+                <img class="instructionImage" src="{urlFor(instruction.image1of2.asset._ref).url()}" alt="">
+                <img class="instructionImage" src="{urlFor(instruction.image2of2.asset._ref).url()}" alt="">
+              </div>   
+              {/if}
+              {#if instruction._type === 'threeImages'} 
+                <div class="instructionImages threeImages">
+                  <img class="instructionImage threeImage" src="{urlFor(instruction.image1of3.asset._ref).url()}" alt="">
+                  <img class="instructionImage threeImage" src="{urlFor(instruction.image2of3.asset._ref).url()}" alt="">
+                  <img class="instructionImage threeImage" src="{urlFor(instruction.image3of3.asset._ref).url()}" alt="">
+                </div>  
+              {/if} -->
     </div>
   {/each}
 </main>
@@ -86,6 +129,27 @@
     top: 33px;
     font-size: 12px;
     width: 100%;
+  }
+  .projectInformation{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  
+  
+  .lineBreak{
+    height: 0.5rem;
+  }
+  .slineBreak{
+    height: 0.01rem;
+  }
+
+  .hide{
+    display: none;
+  }
+  .show{
+    display: flex;
   }
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"> 

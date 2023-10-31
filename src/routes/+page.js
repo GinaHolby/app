@@ -10,7 +10,8 @@ export async function load({ params }) {
     _id,
     slug,
     "bilde": image.asset->url,
-    gallery[]
+    gallery[],
+    bublePlacement,
     }`);
 
   if (data) {

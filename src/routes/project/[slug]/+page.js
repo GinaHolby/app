@@ -40,6 +40,7 @@ export async function load({ params }) {
     solutionTitle,
     solutionIntroduction,
     solutionDescription,
+    information,
     }`);
   
     if (data) {
@@ -53,4 +54,6 @@ export async function load({ params }) {
     };
 
   }
+
+
   
