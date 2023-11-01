@@ -1,5 +1,6 @@
 <script>
   export let data;
+  import { urlFor, findtime } from "$lib/utils";
 
   import "./project.css";
 
@@ -71,6 +72,14 @@
           <p class="slineBreak"> </p>
             <h4>{info.children[0].text}</h4> 
           {/if}
+          {#if info._type === 'image'}  
+              <div class="instructionImages oneImage">
+                <img class="instructionImage" 
+                     src="{urlFor(info.asset._ref).url()}" 
+                     alt=""
+                >
+              </div> 
+              {/if}
         {/each} 
       </div>
       {/if}
@@ -152,6 +161,25 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+  }
+
+  .instructionImages{
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    overflow: scroll;
+
+    padding: 1rem 0rem 0rem 0rem;
+  }
+
+  .instructionImage{
+    flex-grow: 1;
+    width: 600px;
+    object-fit: cover;
+    transform: translate(-1rem);
+    min-width: 300px;
+    padding-bottom: 16px;
+    
   }
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"> 
