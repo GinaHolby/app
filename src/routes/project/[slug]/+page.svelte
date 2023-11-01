@@ -176,7 +176,6 @@
     flex-grow: 1;
     width: 600px;
     object-fit: cover;
-    transform: translate(-1rem);
     min-width: 300px;
     padding-bottom: 16px;
     
