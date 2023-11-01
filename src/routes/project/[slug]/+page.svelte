@@ -150,6 +150,8 @@
   }
   .show{
     display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"> 
